@@ -1,0 +1,25 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark bg-primary scrolling-navbar" [containerInside]="false">
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" routerLink="/">Shemsu Shop</a></mdb-navbar-brand>
+  
+    <links>
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link waves-light" routerLink="/"  routerLinkActive="home" [routerLinkActiveOptions]="{exact:
+            true}" mdbWavesEffect>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" routerLink="products" routerLinkActive="product" [routerLinkActiveOptions]="{exact:
+            true}" mdbWavesEffect>Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" routerLink="/contact" routerLinkActive="contact" [routerLinkActiveOptions]="{exact:
+            true}" mdbWavesEffect>Contact Us</a>
+        </li>
+      </ul>
+  
+      </links>  
+  </mdb-navbar>

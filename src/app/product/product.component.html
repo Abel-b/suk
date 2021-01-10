@@ -1,0 +1,213 @@
+<br />
+<div class="container prodPage">
+  <h3 style="font-size: 2em">All Products</h3>
+  <div class="catItems">
+    <p class="catItem">Filter by Category:</p>
+    <button
+      (click)="getProducts()"
+      class="catItem btn btn-outline-primary btn-md"
+    >
+      All
+    </button>
+    <button
+      (click)="getProductByCategory('Snacks')"
+      class="catItem btn btn-outline-primary btn-md"
+    >
+      Snacks & Chocolates
+    </button>
+    <button
+      (click)="getProductByCategory('Liqour')"
+      class="catItem btn btn-outline-primary btn-md"
+    >
+      Liqour
+    </button>
+    <button
+      (click)="getProductByCategory('Hot')"
+      class="catItem btn btn-outline-primary btn-md"
+    >
+      Hot Drinks
+    </button>
+    <button
+      (click)="getProductByCategory('Food')"
+      class="catItem btn btn-outline-primary btn-md"
+    >
+      Food
+    </button>
+    <button
+      (click)="getProductByCategory('Soda')"
+      class="catItem btn btn-outline-primary btn-md"
+    >
+      Soda
+    </button>
+    <button
+      (click)="getProductByCategory('Energy')"
+      class="catItem btn btn-outline-primary btn-md"
+    >
+      Energy Drinks
+    </button>
+    <button
+      (click)="getProductByCategory('Others')"
+      class="catItem btn btn-outline-primary btn-md"
+    >
+      Others
+    </button>
+  </div>
+  <div class="container products">
+    <div class="row">
+      <div class="col-md-3" *ngFor="let prod of products; let i = index">
+        <!--Card-->
+        <mdb-card class="productClass">
+          <!--Card image-->
+          <div
+            class="view rgba-white-slight waves-light prodImage"
+            mdbWavesEffect
+          >
+            <mdb-card-img src="{{ prod.image }}"></mdb-card-img>
+          </div>
+          <!--/Card image-->
+
+          <mdb-card-body cascade="true" class="text-center pb-0 px-0">
+            <!--Card content-->
+            <h3 class="prodName">{{ prod.name }}</h3>
+            <h4 class="card-title">{{ prod.stock }} remaining</h4>
+            <!--Text-->
+
+            <mdb-card-text> Price: {{ prod.price }}&euro; </mdb-card-text>
+            <mdb-card-text>size: {{ prod.description }}</mdb-card-text>
+
+            <!-- Card footer -->
+            <div class="card-footer text-muted text-center mt-4">
+              <button
+                class="btn btn-primary"
+                (click)="add(prod); showCart()"
+                mdbWavesEffect
+              >
+                Add to cart
+              </button>
+            </div>
+          </mdb-card-body>
+          <!--/.Card content-->
+        </mdb-card>
+        <br />
+        <br />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card container" id="cart">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
+    <i class="fas fa-shopping-cart">Cart</i>
+  </h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <table
+        class="table table-bordered table-responsive-md table-striped text-center"
+      >
+        <tr>
+          <th class="text-center">Product Name</th>
+          <th class="text-center">Price</th>
+          <th class="text-center">Amount</th>
+          <th class="text-center"></th>
+        </tr>
+        <tr *ngFor="let cartItem of cartList; let id = index">
+          <td>
+            <span>{{ cartItem.name }}</span>
+          </td>
+          <td>
+            <span>{{ cartItem.price }}</span>
+          </td>
+          <td>
+            <input
+              type="number"
+              min="1"
+              [(ngModel)]="cartItem.amount"
+              value="{{ cartItem.amount }}"
+              (keyup)="changeValue(id, 'amount', $event)"
+            />
+          </td>
+          <td>
+            <span class="table-remove">
+              <button
+                type="button"
+                mdbBtn
+                color="danger"
+                rounded="true"
+                size="sm"
+                class="my-0"
+                (click)="remove(id)"
+              >
+                Remove
+              </button>
+            </span>
+          </td>
+        </tr>
+      </table>
+      <button
+        class="btn btn-outline-primary"
+        (click)="logOrder(); showCartDetails(); hideCart()"
+      >
+        Continue to Your Details
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="cartDetails">
+  <h3 class="text-center py-4">Your Order Details</h3>
+  <form
+    #orderForm
+    action="https://formsubmit.co/e06c6dab1a2d552758ee70ed9971fd4a"
+    method="POST"
+  >
+    <div class="form-group">
+      <div class="form-row">
+        <div class="co3">
+          <input
+            type="text"
+            name="name"
+            class="form-control"
+            placeholder="Name required"
+          />
+        </div>
+        <div class="co3">
+          <input
+            type="tel"
+            name="telephone"
+            class="form-control"
+            placeholder="Phone-number required"
+          />
+        </div>
+        <div class="co3">
+          <input
+            type="tel"
+            name="room-number"
+            class="form-control"
+            placeholder="Room-number required"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <textarea
+        hidden
+        placeholder="Your Orders"
+        class="form-control"
+        name="Order"
+        rows="5"
+        required
+        >{{ log }}</textarea
+      >
+    </div>
+    <input type="hidden" name="_subject" value="NEW ORDER submission!" />
+    <input type="hidden" name="_next" value="http://localhost:4200/products" />
+    <input type="hidden" name="_captcha" value="false" />
+    <button
+      type="submit"
+      class="btn btn-outline-primary"
+      (click)="orderForm.submit(); orderConfirmation();"
+    >
+      Order
+    </button>
+  </form>
+</div>

@@ -1,0 +1,122 @@
+.intro {
+  text-align: center;
+}
+.introImages {
+  overflow: hidden;
+  animation: animate 15s forwards infinite;
+  opacity: 40%;
+}
+
+.introText {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.item-1,
+.item-2,
+.item-3 {
+  animation-duration: 10s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.item-1 {
+  animation-name: anim-1;
+}
+
+.item-2 {
+  animation-name: anim-2;
+}
+
+.item-3 {
+  animation-name: anim-3;
+}
+
+@keyframes anim-1 {
+  0%,
+  8.3% {
+    opacity: 0;
+  }
+  8.3%,
+  25% {
+    opacity: 1;
+  }
+  33.33%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes anim-2 {
+  0%,
+  33.33% {
+    left: -100%;
+    opacity: 0;
+  }
+  41.63%,
+  58.29% {
+    left: 25%;
+    opacity: 1;
+  }
+  66.66%,
+  100% {
+    left: 110%;
+    opacity: 0;
+  }
+}
+
+@keyframes anim-3 {
+  0%,
+  66.66% {
+    left: -100%;
+    opacity: 0;
+  }
+  74.96%,
+  91.62% {
+    left: 25%;
+    opacity: 1;
+  }
+  100% {
+    left: 110%;
+    opacity: 0;
+  }
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    background-image: url("https://res.cloudinary.com/shemsu/image/upload/v1609968410/Shems_angular/soda_e35woz.jpg ");
+    height: 580px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  25% {
+    background-image: url("https://res.cloudinary.com/shemsu/image/upload/v1609968407/Shems_angular/popc_bh8u5s.jpg");
+    height: 580px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  50% {
+    background-image: url("https://res.cloudinary.com/shemsu/image/upload/v1609968392/Shems_angular/chips_ku18g4.jpg");
+    height: 580px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  75% {
+    background-image: url("https://res.cloudinary.com/shemsu/image/upload/v1609968409/Shems_angular/hotchoco_h1mj2o.jpg");
+    height: 580px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}

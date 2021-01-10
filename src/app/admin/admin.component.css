@@ -1,0 +1,15 @@
+#addProduct{
+    display: none;
+}
+
+#updateProduct{
+    display: none;
+}
+
+#deleteForm{
+    display: none;
+}
+
+.title{
+    text-align: center;
+}

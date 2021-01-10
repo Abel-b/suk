@@ -1,0 +1,25 @@
+.productClass {
+  border-radius: 5px;
+}
+
+.prodImage {
+  margin-top: 10px;
+}
+
+.prodPage {
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.catItem{
+  display: inline;
+}
+
+#cartDetails{
+  display: none;
+  border-style: inset;
+}
+
+#cart{
+  display: none;
+}
