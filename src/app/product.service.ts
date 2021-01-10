@@ -14,7 +14,7 @@ const httpOptions = {
   providedIn: "root",
 })
 export class ProductService {
-  private productsUrl = "ec2-34-200-158-205.compute-1.amazonaws.com";
+  private productsUrl = "http://localhost:8080/api/products";
 
   constructor(private http: HttpClient, private cloudinary: Cloudinary) {}
 
