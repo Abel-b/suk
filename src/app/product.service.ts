@@ -14,7 +14,7 @@ const httpOptions = {
   providedIn: "root",
 })
 export class ProductService {
-  private productsUrl = "http://localhost:8080/api/products";
+  private productsUrl = " https://shes.herokuapp.com/products";
 
   constructor(private http: HttpClient, private cloudinary: Cloudinary) {}
 
