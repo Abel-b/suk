@@ -159,6 +159,16 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  //   showUpdateProductPrice() {
+  //   var show = document.getElementById("updateProductPrice");
+  //   if (show.style.display == "block") {
+  //     show.style.display = "none";
+  //   } else {
+  //     show.style.display = "block";
+  //   }
+  // }
+
+
   showDeleteProduct(){
     var show = document.getElementById("deleteForm");
     if (show.style.display == "block") {
@@ -244,10 +254,18 @@ export class AdminComponent implements OnInit {
   updateProduct(): void {
     this.submitted = true;
     this.productService.updateProduct(this.product)
-        .subscribe(result => this.message = "Customer Updated Successfully!");
-        alert("Product Updated Successfully!")
+        .subscribe(result => this.message = "Stock Updated Successfully!");
+        alert("Product Stock Updated Successfully!")
         this.location.back();
   }
+
+  // updateProductPrice(): void {
+  //   this.submitted = true;
+  //   this.productService.updateProductPrice(this.product)
+  //       .subscribe(result => this.message = "Product Price Updated Successfully!");
+  //       alert("Product Price Updated Successfully!")
+  //       this.location.back();
+  // }
 
   deleteProduct(): void {
     this.submitted = true;

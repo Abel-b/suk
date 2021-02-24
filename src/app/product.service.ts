@@ -54,4 +54,9 @@ export class ProductService {
   updateProduct(product: Product): Observable<any> {
     return this.http.put(this.productsUrl, product, httpOptions);
   }
+
+  // updateProductPrice(product: Product): Observable<any> {
+  //   return this.http.put(this.productsUrl, product, httpOptions);
+  // }
+
 }

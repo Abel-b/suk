@@ -245,6 +245,59 @@
   </form>
 </div>
 
+<!-- <button (click)="showUpdateProductPrice()" class="btn btn-success">
+  <i class="far fa-edit"></i> Update Price
+</button>
+
+<div id="updateProductPrice" class="container jumbotron">
+  <form #updateProductPriceForm="ngForm">
+    <div class="form-group">
+      <label for="name"><b>Product Name</b></label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        placeholder="Product's Name"
+        required
+        [(ngModel)]="product.name"
+        name="name"
+        #name="ngModel"
+      />
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+        Name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="price"><b>Product Price</b></label>
+      <input
+        type="number"
+        class="form-control"
+        id="price"
+        placeholder="Product Price"
+        required
+        [(ngModel)]="product.price"
+        name="price"
+        #price="ngModel"
+      />
+      <div [hidden]="price.valid || price.pristine" class="alert alert-danger">
+        Price is required
+      </div>
+    </div>
+
+    <div class="btn-group btn-group-sm">
+      <button
+        type="button"
+        class="btn btn-success"
+        (click)="updateProductPrice()"
+        [disabled]="!updateProductPriceForm.form.valid"
+      >
+        Uate Product
+      </button>
+    </div>
+  </form>
+</div> -->
+
 <button (click)="showDeleteProduct()" class="btn btn-danger">
   <i class="far fa-trash-alt"></i> Delete Product
 </button>

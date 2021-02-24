@@ -3,33 +3,36 @@ import { from } from "rxjs";
 import { Cart, Product } from "../product";
 import { ProductService } from "../product.service";
 import { ActivatedRoute, Params } from "@angular/router";
+import * as $ from "jquery";
 
 @Component({
   selector: "app-product",
   templateUrl: "./product.component.html",
   styleUrls: ["./product.component.css"],
 })
+
 export class ProductComponent implements OnInit {
   products: Product[];
-
+  
   editField: string;
   orderValue = "";
   log = "";
   cartList: Array<Cart> = [];
-
+  
+  
   remove(id: any) {
-
+    
     this.cartList.splice(id, 1);
   }
 
   changeValue(id: number, property: string, event: any) {
     this.editField = event.target.textContent;
   }
-
+  
   orderConfirmation(){
     alert("Order Submitted! We'll get in touch with you within 10mins, Thank you for using our service!")
   }
-
+  
   add(product: Cart) {
     var i = 0;
     var found = false;
@@ -46,47 +49,55 @@ export class ProductComponent implements OnInit {
       this.cartList.push(product);
     }
   }
-
+  
   logOrder(): void {
     this.log += JSON.stringify(this.cartList, null,5);
   }
 
   showCartDetails() {
     var show = document.getElementById("cartDetails");
-      show.style.display = "block";
+    show.style.display = "block";
   }
   
   showCart() {
     var show = document.getElementById("cart");
-      show.style.display = "block";
+    show.style.display = "block";
   }
-
-
+  
+  
   hideCart() {
     var show = document.getElementById("cart");
-      show.style.display = "none";
+    show.style.display = "none";
   }
-
-
+  
+  
   constructor(private productService: ProductService) {}
-
+  
   ngOnInit(): void {
     this.getProducts();
+    
+    $("#continue").click(function() {
+      $('html, body').animate({
+          scrollTop: $("#cartDetails").offset().top
+      }, 2000);
+    });
+    
   }
-
+  
   getProducts() {
     return this.productService.getProducts().subscribe((products) => {
       console.log(products);
       this.products = products;
     });
   }
-
+  
   getProductByCategory(category: string) {
     return this.productService
-      .getProductByCategory(category)
-      .subscribe((products) => {
-        console.log(products);
-        this.products = products;
-      });
+    .getProductByCategory(category)
+    .subscribe((products) => {
+      console.log(products);
+      this.products = products;
+    });
   }
 }
+

@@ -6,6 +6,10 @@
     display: none;
 }
 
+#updateProductPrice{
+    display: none;
+}
+
 #deleteForm{
     display: none;
 }

@@ -22,4 +22,8 @@
 
 #cart{
   display: none;
+  position: fixed;
+  top: 10px;
+  width: auto;
+  right: 0;
 }
